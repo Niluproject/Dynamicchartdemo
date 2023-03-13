@@ -4,7 +4,10 @@ import Button from 'react-bootstrap/Button';
 import DataTable from 'react-data-table-component';
 import { read, utils, writeFile } from 'xlsx';
 import datajson from './data.json'
-
+const handleButtonClick = (e, email) => {
+  e.preventDefault();
+  alert(`${email}`);
+};
 const columns = [
   {
     name: 'Name',
@@ -25,6 +28,18 @@ const columns = [
     name: 'DOB',
     selector: 'dob',
   },
+  {
+    name: "Actions",
+    button: true,
+    cell: (row) => (
+      <button
+        className="btn btn-outline btn-xs"
+        onClick={(e) => handleButtonClick(e, row.email)}
+      >
+        Edit
+      </button>
+    ),
+  },
 ];
 
 
@@ -36,10 +51,10 @@ const Databledemo = () => {
 
   const handleExport = () => {
     const headings = [[
-        'Name',
-        'Phone',
-        'Email',
-        'DOB'
+      'Name',
+      'Phone',
+      'Email',
+      'DOB'
     ]];
     const wb = utils.book_new();
     const ws = utils.json_to_sheet([]);
@@ -47,7 +62,7 @@ const Databledemo = () => {
     utils.sheet_add_json(ws, datajson, { origin: 'A2', skipHeader: true });
     utils.book_append_sheet(wb, ws, 'Report');
     writeFile(wb, 'datajson Report.xlsx');
-}
+  }
 
   useEffect(() => {
     // fetch the Data.json file and set it to the data state variable
@@ -58,9 +73,9 @@ const Databledemo = () => {
 
   return (
     <div>
-    <h3>DataTable in React</h3>
-    <Button  onClick={handleExport} className="btn btn-primary float-right" variant="success">
-                        Export <i className="fa fa-download"></i></Button>
+      <h3>DataTable in React</h3>
+      <Button onClick={handleExport} className="btn btn-primary float-right" variant="success">
+        Export <i className="fa fa-download"></i></Button>
       <DataTable
         title="Employees"
         columns={columns}

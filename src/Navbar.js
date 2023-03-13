@@ -9,6 +9,7 @@ function Navbar() {
         <li><NavLink className='nvlink' to="/datatable">Datatable</NavLink></li>
         <li><NavLink className='nvlink' to="/chart">Chart</NavLink></li>
         <li><NavLink className='nvlink' to="/Linechart">LineChart</NavLink></li>
+        <li><NavLink className='nvlink' to="/barchart">BarChart</NavLink></li>
         <li><NavLink className='nvlink' to="/dchart">Dynamicchart</NavLink></li>
         <li><NavLink className='nvlink' to="/multiselect">MultiSelect</NavLink></li>
         <li><NavLink className='nvlink' to="/tabs">Tabs</NavLink></li>

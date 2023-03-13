@@ -11,6 +11,7 @@ import Tabledata from './components/Tabledata';
 import Chart from './components/Chart';
 import PieChart from './components/PieChart';
 import Linechart from './components/Linechart';
+import Barchart from './components/Barchart';
 import Dynamicchart from './components/Dynamicchart';
 import MultiSelectt from './components/Multiselectt';
 import Tabss from './components/Tabss';
@@ -28,6 +29,7 @@ function App() {
         <Route path="/tabledata" element={<Tabledata />} />
         <Route path="/chart" element={<Chart />} />
         <Route path="/Linechart" element={<Linechart />} />
+        <Route path="/barchart" element={<Barchart />} />
         <Route path="/print" element={<Print />} />
         <Route path="/piechart" element={<PieChart />} />
         <Route path="/dchart" element={<Dynamicchart />} />
