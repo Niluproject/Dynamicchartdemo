@@ -1,5 +1,5 @@
 import { type } from '@testing-library/user-event/dist/type';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import Button from 'react-bootstrap/Button';
 import DataTable from 'react-data-table-component';
 import { read, utils, writeFile } from 'xlsx';
@@ -9,6 +9,12 @@ const handleButtonClick = (e, email) => {
   alert(`${email}`);
 };
 const columns = [
+  {
+    name: "Sr_No",
+    selector: (row, index) => index + 1,
+    // sortable: true,
+    width: "10%",
+  },
   {
     name: 'Name',
     selector: 'name',
@@ -45,9 +51,34 @@ const columns = [
 
 
 const Databledemo = () => {
-
+  // const [editingId, setEditingId] = useState(null);
   const [data, setData] = useState(datajson);
   const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const filteredData = useMemo(() => {
+    if (!searchQuery) {
+      return data;
+    }
+
+    return data.filter((row) => {
+      const name = row.name.toLowerCase();
+      const phone = row.phone.toLowerCase();
+      const email = row.email.toLowerCase();
+      const dob = row.dob.toLowerCase();
+      const query = searchQuery.toLowerCase();
+
+      return (
+        name.includes(query) ||
+        phone.includes(query) ||
+        email.includes(query) ||
+        dob.includes(query)
+      );
+    });
+  }, [data, searchQuery]);
 
   const handleExport = () => {
     const headings = [[
@@ -74,12 +105,18 @@ const Databledemo = () => {
   return (
     <div>
       <h3>DataTable in React</h3>
-      <Button onClick={handleExport} className="btn btn-primary float-right" variant="success">
+      <input
+        type="text"
+        placeholder="Search"
+        value={searchQuery}
+        onChange={handleSearch}
+      />
+      <Button onClick={handleExport} className="btn btn-primary float-right btnexp" variant="success">
         Export <i className="fa fa-download"></i></Button>
       <DataTable
-        title="Employees"
+        title="Employees Data"
         columns={columns}
-        data={data}
+        data={filteredData}
         pagination
         fixedHeader
         highlightOnHover
@@ -90,6 +127,15 @@ const Databledemo = () => {
         // dense={true}
         selectableRows
         selectableRowsHighlight
+      // actions={<button className='btn btn-info'>Export</button>}
+      // subHeaderComponent={
+      //   <input
+      //     type="text"
+      //     placeholder="Search"
+      //     value={searchQuery}
+      //     onChange={handleSearch}
+      //   />
+      // }
       />
     </div>
   )
