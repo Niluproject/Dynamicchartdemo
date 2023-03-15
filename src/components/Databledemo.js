@@ -61,7 +61,7 @@ const Databledemo = () => {
     setSearchQuery(e.target.value);
   };
 
-  const [currentRowsPerPage, setcurrentRowsPerPage] = useState(5);
+  const [currentRowsPerPage, setcurrentRowsPerPage] = useState(10);
   const [currentPage, setcurrentPage] = useState(1);
   const [ids, setids] = useState(1);
   console.log(currentPage);
@@ -135,7 +135,7 @@ const Databledemo = () => {
         columns={columns}
         data={filteredData}
         pagination
-        paginationPerPage={5}
+        paginationPerPage={10}
         paginationRowsPerPageOptions={[5, 10, 15, 20]}
         fixedHeader
         highlightOnHover

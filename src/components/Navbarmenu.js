@@ -20,6 +20,7 @@ function Navbarmenu() {
             <Link to="/multiselect" className="nav-link">MultiSelect</Link>
             <Link to="/tabs" className="nav-link">Tabs</Link>
             <Link to="/aggrid" className="nav-link">AgGrid</Link>
+            <Link to="/apigrid" className="nav-link">ApiAgGrid</Link>
           </Nav>
         </Container>
       </Navbar>
