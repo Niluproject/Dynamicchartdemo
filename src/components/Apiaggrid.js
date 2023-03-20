@@ -35,8 +35,8 @@ function Apiaggrid() {
     }
 
     //Exort csv code start //
-    const  onExportClick = () => {
-        gridApi.api.exportDataAsExcel();
+    const onExportClick = () => {
+        gridApi.api.exportDataAsCsv();
     };
     //Exort csv code End //
 
