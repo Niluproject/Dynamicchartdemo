@@ -33,10 +33,40 @@ function Apiaggrid() {
     const onPaginationChange = (pageSize) => {
         gridApi.api.paginationSetPageSize(Number(pageSize))
     }
+
+    //Exort csv code start //
+    const  onExportClick = () => {
+        gridApi.api.exportDataAsExcel();
+    };
+    //Exort csv code End //
+
+    // Global Search Filter Start//
+    const onFilterTextChange = (e) => {
+        console.log(e.target.value);
+        gridApi.api.setQuickFilter(e.target.value);
+    }
+    // Global Search Filter End//
+
+    // Style Start//
+    const searchDivStyle = { backgroundColor: "#dedede", padding: 10 }
+    const searchStyle = {
+        width: "100%", padding: "10px 20px", borderRadius: 20, outline: 0,
+        border: "2px rgb(33 37 41) solid", fontSize: "100%"
+    }
+
+    const expoStyle = {
+        marginRight: '95rem',
+    };
+    // Style End//
+
     return (
         <div className="App">
             <h1 align="center">React-App</h1>
+            <div style={searchDivStyle}>
+                <input type="search" style={searchStyle} onChange={onFilterTextChange} placeholder="search somethings..." />
+            </div>
             <h3>Student Details</h3>
+            <button onClick={() => onExportClick()} style={expoStyle}>Export</button>
             <select onChange={(e) => onPaginationChange(e.target.value)}>
                 <option value='5'>5</option>
                 <option value='10'>10</option>
