@@ -1,3 +1,4 @@
+import '../App.css';
 import { type } from "@testing-library/user-event/dist/type";
 import React, { useEffect, useState, useMemo } from "react";
 import Button from "react-bootstrap/Button";

@@ -16,11 +16,15 @@ function Navbarmenu() {
             <Link to="/chart" className="nav-link">Chart</Link>
             <Link to="/Linechart" className="nav-link">LineChart</Link>
             <Link to="/barchart" className="nav-link">BarChart</Link>
+            <Link to="/horizontal" className="nav-link">Horizontal</Link>
+            <Link to="/gradient" className="nav-link">Gradient</Link>
             <Link to="/dchart" className="nav-link">Dynamicchart</Link>
             <Link to="/multiselect" className="nav-link">MultiSelect</Link>
             <Link to="/tabs" className="nav-link">Tabs</Link>
             <Link to="/aggrid" className="nav-link">AgGrid</Link>
             <Link to="/apigrid" className="nav-link">ApiAgGrid</Link>
+            <Link to="/sign" className="nav-link">Sign Up</Link>
+
           </Nav>
         </Container>
       </Navbar>

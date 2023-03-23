@@ -31,7 +31,7 @@ const data = {
 
 const options = {
   scales: {
-    y: {
+    x: {
       beginAtZero: true,
     },
   },
