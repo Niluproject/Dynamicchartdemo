@@ -1,8 +1,7 @@
 import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-// import "bootstrap/dist/css/bootstrap.css";
-function Signup() {
+const Signup = () => {
 
     const LoginSchema = Yup.object().shape({
         username: Yup.string()

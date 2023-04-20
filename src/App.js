@@ -22,6 +22,7 @@ import Navbarmenu from './components/Navbarmenu';
 import Aggrid from './components/Aggrid';
 import Apiaggrid from './components/Apiaggrid';
 import Signup from './components/Signup';
+import Antddemo from './components/Antddemo';
 import Test from './components/Test';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
@@ -47,6 +48,7 @@ function App() {
           <Route path="/aggrid" element={<Aggrid />} />
           <Route path="/apigrid" element={<Apiaggrid />} />
           <Route path="/sign" element={<Signup />} />
+          <Route path="/antd" element={<Antddemo />} />
           <Route path="/about" element={<About name="Nilesh" />} />
           <Route path="/user/:name" element={<Users />} />
           {/* <Route path="/user/:name" element={<Lazyload />} /> */}

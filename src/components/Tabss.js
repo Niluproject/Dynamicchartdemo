@@ -9,7 +9,6 @@ function Tabss() {
         imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
         imageSize: 90,
     };
-
     const startups = {
         name: 'StartUps grid',
         imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',

@@ -1,55 +1,33 @@
-import React, { useRef, useEffect } from 'react';
-import { Chart } from 'chart.js';
+import React from 'react'
+import { Chart } from "react-google-charts";
 
-// Declare chartRef outside of the component function to maintain reference
-let myChart = null;
+function Gradientchart() {
 
-const GradientChart = () => {
-    const chartRef = useRef(null);
+    const data = [
+        ["Task", "Hours per Day"],
+        ["Work", 11],
+        ["Eat", 2],
+        ["Commute", 2],
+        ["Watch TV", 2],
+        ["Sleep", 7],
+    ];
 
-    useEffect(() => {
-        const ctx = chartRef.current.getContext('2d');
-        const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-        gradient.addColorStop(0, 'rgba(54, 162, 235, 0.2)');
-        gradient.addColorStop(1, 'rgba(54, 162, 235, 0.8)');
-
-        if (myChart) {
-            myChart.destroy();
-        }
-
-        myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-                datasets: [
-                    {
-                        label: 'Sales',
-                        data: [12, 19, 3, 5, 2, 3],
-                        backgroundColor: gradient,
-                    },
-                ],
-            },
-            options: {
-                scales: {
-                    yAxes: [
-                        {
-                            ticks: {
-                                beginAtZero: true,
-                            },
-                        },
-                    ],
-                },
-            },
-        });
-    }, []);
+    const options = {
+        title: "My Daily Activities",
+        is3D: true,
+    };
 
     return (
         <div>
-            <h2>Sales Bar Chart with Gradient Fill</h2>
-            <canvas ref={chartRef} />
+            <Chart
+                chartType="PieChart"
+                data={data}
+                options={options}
+                width={"100%"}
+                height={"400px"}
+            />
         </div>
-    );
-};
+    )
+}
 
-export default GradientChart;
-
+export default Gradientchart

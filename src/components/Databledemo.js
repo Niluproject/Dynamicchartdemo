@@ -66,12 +66,16 @@ const Databledemo = () => {
   const [currentPage, setcurrentPage] = useState(1);
   const [ids, setids] = useState(1);
   console.log(currentPage);
+
+  // dynamic indexing start//
   useEffect(() => {
     setids(currentRowsPerPage * currentPage - (currentRowsPerPage - 1));
   }, [currentPage, currentRowsPerPage]);
   const chanepage = (page, totalRows) => {
     setcurrentPage(page);
   };
+  // dynamic indexing end//
+
   const RowPerPage = (currentRowsPerPage, page) => {
     setcurrentRowsPerPage(currentRowsPerPage);
     setcurrentPage(page);
