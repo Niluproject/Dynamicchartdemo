@@ -60,7 +60,7 @@ function TableAntd() {
             key: '1',
             name: 'Nilesh',
             age: 32,
-            address: 'New York No. 1 Lake Park',
+            address: 'New York No. 1 Lake Parkk',
         },
         {
             key: '2',
